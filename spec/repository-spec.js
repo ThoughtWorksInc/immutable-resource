@@ -49,15 +49,12 @@ function testRepositoryUponStorage(storage) {
 
         describe('create', function () {
             it('should create a new resource', function (done) {
-                var newPatient = {
-                    firstName: 'Jeff',
-                    lastName: 'Xiong'
-                };
+                var newPatient = getNewPatient();
                 patientRepository.create(newPatient, function (error, persistedPatientId) {
                     expect(error).toEqual(null);
                     expect(persistedPatientId).not.toEqual(undefined);
                     patientRepository.load(persistedPatientId, function (error, loadedPatient) {
-                        expect(loadedPatient.firstName).toEqual('Jeff');
+                        expect(loadedPatient.firstName).toEqual('Jie');
                         done();
                     });
                 });
@@ -66,10 +63,7 @@ function testRepositoryUponStorage(storage) {
 
         describe('update', function () {
             it('should update final state of resource', function (done) {
-                var newPatient = {
-                    firstName: 'Jie',
-                    lastName: 'Xiong'
-                };
+                var newPatient = getNewPatient();
                 patientRepository.create(newPatient, function (error, persistedPatientId) {
                     patientRepository.load(persistedPatientId, function (error, loadedPatient) {
                         patientRepository.update(loadedPatient.id, {firstName: 'Jeff'}, function (error) {
@@ -85,10 +79,7 @@ function testRepositoryUponStorage(storage) {
 
         describe('delete', function() {
             it("should return true if delete was successful", function (done) {
-                var newPatient = {
-                    firstName: 'Jie',
-                    lastName: 'Xiong'
-                };
+                var newPatient = getNewPatient();
                 patientRepository.create(newPatient, function(error, persistedPatientId) {
                     patientRepository.delete(persistedPatientId, function(resourceDeleted) {
                         expect(resourceDeleted).toBe(true);
@@ -100,7 +91,14 @@ function testRepositoryUponStorage(storage) {
                     });
                 });
             });
-        })
+        });
+
+        function getNewPatient() {
+            return {
+                firstName: 'Jie',
+                lastName: 'Xiong'
+            };
+        }
     });
 }
 
