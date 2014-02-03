@@ -1,8 +1,11 @@
 {
+    "author": "praveen vijayan ",
     "name": "immutable-resource",
     "description": "RESTful resource which are immutable",
     "version": "0.0.1",
-    "private": true,
+    "repository": {
+      "url": ""
+    },
     "devDependencies": {
         "grunt": "0.4.1",
         "grunt-cli" : "*",
