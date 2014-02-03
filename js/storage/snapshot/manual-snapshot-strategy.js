@@ -20,7 +20,7 @@ var ManualSnapshotStrategy = function (storage) {
             return change._deleted;
         });
         return deleteEvents.length > 0;
-    };
+    }
 
     this.createChangeLog = function (entityType, resourceId, partialObject, callback) {
         partialObject.originalResourceId = resourceId;

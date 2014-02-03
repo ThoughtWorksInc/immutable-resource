@@ -1,6 +1,7 @@
 {
     "author": "praveen vijayan ",
     "name": "immutable-resource",
+    "main" : "./js/immutable-storage.js",
     "description": "RESTful resource which are immutable",
     "version": "0.0.1",
     "repository": {
