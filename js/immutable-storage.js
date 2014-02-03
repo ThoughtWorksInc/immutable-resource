@@ -18,6 +18,6 @@ exports.createRepository = function (repositoryType, storageParams) {
         return new Repository(memoryStorage, repositoryType);
     }
     else {
-        throw new Error("Storage type + '" + storageParams.type + "' not supported");
+        return null;
     }
 };
